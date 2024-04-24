@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
-import { data } from 'autoprefixer'
 import ProductDetail from '../../Components/ProductDetail'
+import { ShoppingCartContext } from '../../Context'
 
 const Home = () => {
 
-  const [items, setItems] = useState(null)
+  const { items, setSearchByTitle, filteredItems, searchByTitle } = useContext(ShoppingCartContext);
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => {
-        setItems(data); // Actualiza el estado con los datos recibidos
-       // console.log(data); // Muestra los datos en la consola
-      }) 
-  }, []);
+  const filteredItemsToShow = searchByTitle?.length > 0 ? filteredItems : items;
+
+  const searchingTitle = filteredItemsToShow?.length > 0 ? (
+    filteredItemsToShow.map((item, index) => (
+      <Card key={index} data={item} />
+    ))
+  ) : (
+    <p>No hay resultados que coincidan con la búsqueda.</p>
+  )
 
   return (
     <>
       <Layout>
-        Home
-        <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
-        {
-          items?.map((item,index) => (
-            <Card key={index} data={item} />
-          ))
-        }
+        <div className='flex flex-col items-center'>
+          <h1 className='mb-4'>Productos exclusivos</h1>
         </div>
-        <ProductDetail/>
+
+        <input type='text'
+          placeholder='Busque los productos'
+          className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
+          onChange={(e) => setSearchByTitle(e.target.value)} />
+
+        <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+          {searchingTitle}
+        </div>
+        <ProductDetail />
 
       </Layout>
 
