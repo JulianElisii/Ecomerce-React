@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 
-
 export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
@@ -32,7 +31,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
     const [filteredItems, setFilteredItems] = useState();
 
-    //Estado para Buscar los productos
+    //Estado para Buscar los productos por titulo
     const [searchByTitle, setSearchByTitle] = useState();
 
     useEffect(() => {
@@ -43,7 +42,6 @@ export const ShoppingCartProvider = ({ children }) => {
             })
     }, []);
 
-
     const filteredItemsByTitle = (items, searchByTitle) => {
         return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
     }
@@ -51,7 +49,6 @@ export const ShoppingCartProvider = ({ children }) => {
     useEffect(() => {
         if (searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
     }, [items, searchByTitle]);
-    //console.log('filter:',filteredItems)
 
     return (
         <ShoppingCartContext.Provider value={{

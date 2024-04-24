@@ -9,6 +9,9 @@ import '/src/App.css'
 import Navbar from '../../Components/Navbar'
 import { ShoppingCartProvider } from '../../Context'
 import CheckOutSideMenu from '../../Components/CheckOutSideMenu'
+import Clothes from '../Clothes'
+import Electronics from '../Electronics'
+import Jewelery from '../Jewelery'
 
 const AppRoutes = () => {
 
@@ -21,6 +24,9 @@ const AppRoutes = () => {
     { path: '/MyOrders/last', element: <MyOrder /> },
     { path: '/MyOrders/:id', element: <MyOrder /> },
     { path: '/SingIn', element: <SingIn /> },
+    { path: '/clothes', element: <Clothes /> },
+    { path: '/electronics', element: <Electronics /> },
+    { path: '/jewelery', element: <Jewelery /> },
     { path: '/*', element: <NotFound /> },
   ])
 

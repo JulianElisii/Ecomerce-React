@@ -34,9 +34,7 @@ const Home = () => {
           {searchingTitle}
         </div>
         <ProductDetail />
-
       </Layout>
-
     </>
   )
 }

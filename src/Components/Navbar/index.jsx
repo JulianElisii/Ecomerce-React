@@ -6,7 +6,7 @@ import { ShoppingBagIcon } from '@heroicons/react/16/solid';
 const Navbar = () => {
 
     const activeStyle = "underline underline-offset-4"
-    const { count, openCheckOutSideMenu } = useContext(ShoppingCartContext);
+    const { count, openCheckOutSideMenu, closeProductDetail } = useContext(ShoppingCartContext);
 
 
     return (
@@ -20,50 +20,39 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/" 
-                    className={({ isActive }) => isActive ? activeStyle : undefined}>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
+                        onClick={() => closeProductDetail()}
+                    >
                         All
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/clothes"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/clothes"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
+                        onClick={() => closeProductDetail()}
                     >
                         Clothes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/electronics"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/electronics"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
+                        onClick={() => closeProductDetail()}
                     >
                         Electronics
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/furnitures"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/jewelery"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
+                        onClick={() => closeProductDetail()}
                     >
-                        Furnitures
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                    to="/toys"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
-                    >
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                    to="/others"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
-                    >
-                        Others
+                        Jewelery
                     </NavLink>
                 </li>
             </ul>
@@ -72,31 +61,31 @@ const Navbar = () => {
                     julian@gmail.com
                 </li>
                 <li>
-                    <NavLink 
-                    to="/MyAccount"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/MyAccount"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         My account
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/MyOrders"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/MyOrders"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         My Orders
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
-                    to="/SingIn"
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    <NavLink
+                        to="/SingIn"
+                        className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
                         SingIn
                     </NavLink>
                 </li>
                 <li className='flex items-center'>
-                    <ShoppingBagIcon className='h-6 w-6 text-black' onClick={()=>openCheckOutSideMenu()}/> 
+                    <ShoppingBagIcon className='h-6 w-6 text-black' onClick={() => openCheckOutSideMenu()} />
                     <div>{count}</div>
                 </li>
             </ul>
