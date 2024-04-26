@@ -13,9 +13,9 @@ const Electronics = () => {
 
 
     //filtrando por nombre lo que viene filtrado de filteredItems
-    const filterItemsClothes = filteredItems?.filter((item) => {
+    const filterItemsElectronics = filteredItems?.filter((item) => {
         // Verificar si la categoría del elemento es "men's clothing" o "women's clothing"
-        return item.category === "electronics";
+        return item.category === searchByCategory;
     });
 
     const filteredItemsByCategoty = (items, searchByCategory) => {
@@ -26,7 +26,7 @@ const Electronics = () => {
     }, [items, searchByCategory]);
 
     //Evaluando si pintamos lo filtrado por nombre o solo la categoria o categoria y nombre
-    const filteredItemsToShow = searchByTitle?.length > 0 ? filterItemsClothes : categoryOfElectronics;
+    const filteredItemsToShow = searchByTitle?.length > 0 ? filterItemsElectronics : categoryOfElectronics;
 
     const searchingElectronics = filteredItemsToShow?.length > 0 ? (
         filteredItemsToShow.map((item, index) => (
