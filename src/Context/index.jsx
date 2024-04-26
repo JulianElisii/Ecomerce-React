@@ -29,7 +29,7 @@ export const ShoppingCartProvider = ({ children }) => {
     //Estado para pedir los productos
     const [items, setItems] = useState(null)
 
-    const [filteredItems, setFilteredItems] = useState();
+    const [filteredItems, setFilteredItems] = useState(null);
 
     //Estado para Buscar los productos por titulo
     const [searchByTitle, setSearchByTitle] = useState();

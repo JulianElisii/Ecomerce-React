@@ -6,7 +6,12 @@ import { ShoppingBagIcon } from '@heroicons/react/16/solid';
 const Navbar = () => {
 
     const activeStyle = "underline underline-offset-4"
-    const { count, openCheckOutSideMenu, closeProductDetail } = useContext(ShoppingCartContext);
+    const { count, openCheckOutSideMenu, closeProductDetail, setSearchByTitle } = useContext(ShoppingCartContext);
+
+    const handleNavLinkClick = () => {
+        closeProductDetail(); // Llama a la función para cerrar el detalle del producto
+        setSearchByTitle(null)  // Llama a la función para establecer los elementos filtrados a null
+      };
 
 
     return (
@@ -23,7 +28,7 @@ const Navbar = () => {
                     <NavLink
                         to="/"
                         className={({ isActive }) => isActive ? activeStyle : undefined}
-                        onClick={() => closeProductDetail()}
+                        onClick={handleNavLinkClick}
                     >
                         All
                     </NavLink>
@@ -32,7 +37,7 @@ const Navbar = () => {
                     <NavLink
                         to="/clothes"
                         className={({ isActive }) => isActive ? activeStyle : undefined}
-                        onClick={() => closeProductDetail()}
+                        onClick={handleNavLinkClick}
                     >
                         Clothes
                     </NavLink>
@@ -41,7 +46,7 @@ const Navbar = () => {
                     <NavLink
                         to="/electronics"
                         className={({ isActive }) => isActive ? activeStyle : undefined}
-                        onClick={() => closeProductDetail()}
+                        onClick={handleNavLinkClick}
                     >
                         Electronics
                     </NavLink>
@@ -50,7 +55,7 @@ const Navbar = () => {
                     <NavLink
                         to="/jewelery"
                         className={({ isActive }) => isActive ? activeStyle : undefined}
-                        onClick={() => closeProductDetail()}
+                        onClick={handleNavLinkClick}
                     >
                         Jewelery
                     </NavLink>
