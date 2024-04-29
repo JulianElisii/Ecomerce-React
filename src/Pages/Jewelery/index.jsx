@@ -32,7 +32,7 @@ const Jewelery = () => {
             <Card key={index} data={item} />
         ))
     ) : (
-        <p>No hay resultados que coincidan con la búsqueda.</p>
+        <p>There are no results matching your search.</p>
     )
 
     return (
@@ -40,7 +40,7 @@ const Jewelery = () => {
             <div className='flex flex-col items-center'>
                 <h1 className='mb-4'>Jewelery</h1>
                 <input type='text'
-                    placeholder='Busque los productos'
+                    placeholder='Search products'
                     className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
                     onChange={(e) => setSearchByTitle(e.target.value)} />
                 <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>

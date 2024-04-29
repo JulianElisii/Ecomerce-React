@@ -17,7 +17,7 @@ const ProductDetail = () => {
     <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-gray-200`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>Detail</h2>
-        <XMarkIcon onClick={handlecloseProductDetail} className='h-6 w-6 text-black'></XMarkIcon>
+        <XMarkIcon onClick={handlecloseProductDetail} className='h-6 w-6 text-black cursor-pointer'></XMarkIcon>
       </div>
       <figure className='px-6'>
         <img className='w-full h-full rounded-lg'

@@ -40,7 +40,7 @@ const CheckOutSideMenu = () => {
     <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded-lg bg-gray-200`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>My order</h2>
-        <XMarkIcon onClick={handlecloseProductDetail} className='h-6 w-6 text-black'></XMarkIcon>
+        <XMarkIcon onClick={handlecloseProductDetail} className='h-6 w-6 text-black cursor-pointer'></XMarkIcon>
       </div>
       <div className='px-6 overflow-y-scroll flex-1'>
         {
@@ -64,7 +64,18 @@ const CheckOutSideMenu = () => {
       </div>
       <div className='flex justify-center'>
         <Link to='/MyOrders/last'>
-          <button className='bg-black py-3 mb-4 text-white w-80 rounded-lg ' onClick={() => handleCheckOut()}>CheckOut</button>
+          <button
+            className={`bg-black py-3 mb-4 text-white w-80 rounded-lg ${cartProducts.length === 0 ? 'disabled:opacity-50 cursor-not-allowed' : ''}`}
+            onClick={() => {
+              if (cartProducts.length > 0) {
+                handleCheckOut();
+                closeCheckOutSideMenu()
+              }
+            }}
+            disabled={cartProducts.length === 0}
+          >
+            CheckOut
+          </button>
         </Link>
       </div>
     </aside>

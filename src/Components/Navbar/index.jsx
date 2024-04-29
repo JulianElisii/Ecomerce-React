@@ -6,7 +6,7 @@ import { ShoppingBagIcon } from '@heroicons/react/16/solid';
 const Navbar = () => {
 
     const activeStyle = "underline underline-offset-4"
-    const { count, openCheckOutSideMenu, closeProductDetail, setSearchByTitle } = useContext(ShoppingCartContext);
+    const { openCheckOutSideMenu, closeProductDetail, setSearchByTitle,cartProducts } = useContext(ShoppingCartContext);
 
     const handleNavLinkClick = () => {
         closeProductDetail(); // Llama a la función para cerrar el detalle del producto
@@ -90,8 +90,8 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className='flex items-center'>
-                    <ShoppingBagIcon className='h-6 w-6 text-black' onClick={() => openCheckOutSideMenu()} />
-                    <div>{count}</div>
+                    <ShoppingBagIcon className='h-6 w-6 text-black cursor-pointer' onClick={() => openCheckOutSideMenu()} />
+                    <div>{cartProducts.length}</div>
                 </li>
             </ul>
         </nav>
